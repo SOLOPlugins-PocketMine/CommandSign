@@ -106,10 +106,9 @@ class CommandSign extends PluginBase implements Listener{
       $commandLine = implode($lines);
 
       $newLines = explode("\n", str_ireplace("{COMMAND}", (trim($commandLine) == "") ? "§d명령어를 입력해주세요" : $commandLine, $this->config->get("commandsign-format", "[명령어]\n{COMMAND}")));
-      if(count($newLines) > 4){
-        $newLines = array_slice($newLines, 0, 4);
+      for($i = 0; $i < 4; $i++){
+        $event->setLine($i, $newLines[$i] ?? "");
       }
-      $event->setLines($newLines);
 
       $this->setCommandSign($event->getBlock(), $commandLine);
     }
