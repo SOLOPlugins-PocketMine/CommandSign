@@ -57,7 +57,7 @@ class CommandSign extends PluginBase implements Listener{
   }
 
   /**
-   * @ignoreCancelled true
+   * @ignoreCancelled false
    *
    * @priority MONITOR
    */
